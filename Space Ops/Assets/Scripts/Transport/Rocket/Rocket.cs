@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
+
 
 public class Rocket : Transport
 {
@@ -9,7 +7,7 @@ public class Rocket : Transport
     public float thrustForce;
     public float freezePosition;
     public bool applyThrust;
-    public bool idle = true;
+    
 
     void Start()
     {
