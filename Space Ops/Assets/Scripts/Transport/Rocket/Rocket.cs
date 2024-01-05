@@ -1,8 +1,9 @@
 using UnityEngine;
 
 
-public class Rocket : Transport
+public class Rocket : MonoBehaviour
 {
+    [Header("Rocket's variables")]
     public Rigidbody rb;
     public float thrustForce;
     public float freezePosition;

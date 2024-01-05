@@ -5,9 +5,13 @@ using UnityEngine;
 public class RocketPlatformLights : MonoBehaviour
 {
 
-   public Light[] pointLights;
-    private Color redColor = Color.red;
-    private Color greenColor = Color.green;
+    private Light[] pointLights;
+    public Color redColor = Color.red;
+    public Color greenColor = Color.green;
+    public Color yellowColor = Color.yellow;
+    public Color cyanColor = Color.cyan;
+
+
     
     void Start()
     {
@@ -19,22 +23,15 @@ public class RocketPlatformLights : MonoBehaviour
         pointLights = GetComponentsInChildren<Light>();       
     }
 
-    public void SetLightColorRed()
-    {
+    public void SetLightColor(Color color)
+    {        
         foreach (Light light in pointLights)
         {
-            light.color = redColor;
+            light.color = color;
         }
     }
-
-    public void SetLightColorGreen()
-    {
-        foreach (Light light in pointLights)
-        {
-            light.color = greenColor;
-        }
-    }
+}
 
     
+     
 
-}

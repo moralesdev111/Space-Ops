@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class States : MonoBehaviour
 {
-    public RocketStates currentState;
     [SerializeField] Rocket rocket;
+    [Header("Current Rocket State")]
+    public RocketStates currentState;
+    private float timeSinceLanding;
+ 
     
 
     public enum RocketStates
@@ -12,7 +15,7 @@ public class States : MonoBehaviour
         liftoff,
         frozen,
         landing,
-        landingTwo
+        landed
     }
 
     void Update()
@@ -35,27 +38,29 @@ public class States : MonoBehaviour
             break;
         case RocketStates.liftoff:
             
-            if (rocket.transform.position.y >= rocket.freezePosition && rocket.applyThrust)
+            if (rocket.transform.position.y >= rocket.freezePosition)
             {
                 nextState = RocketStates.frozen; // Change to frozen when condition met
             }
             break;
         case RocketStates.frozen:
             
-            if (rocket.transform.position.y >= rocket.freezePosition && !rocket.applyThrust)
+            if (!rocket.applyThrust)
             {
                 nextState = RocketStates.landing; // Change to landing when condition met
             }
             break;
         case RocketStates.landing:
            
-            if (rocket.transform.position.y >= 2 && rocket.transform.position.y <= rocket.freezePosition && !rocket.applyThrust)
+            if (rocket.transform.position.y <= 8 )
             {
-                nextState = RocketStates.landingTwo; // Change to landingTwo when condition met
+                nextState = RocketStates.landed; // Change to landingTwo when condition met
             }
             break;
-        case RocketStates.landingTwo:
-            if (rocket.transform.position.y <= 2 && rocket.transform.position.y <= rocket.freezePosition && !rocket.applyThrust)
+        case RocketStates.landed:
+
+            timeSinceLanding+= Time.deltaTime;
+            if (timeSinceLanding >= 30f)
             {
                 nextState = RocketStates.idle; // Change to idle when condition met
             }

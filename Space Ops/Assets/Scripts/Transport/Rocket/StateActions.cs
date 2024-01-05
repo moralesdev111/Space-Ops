@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class StateActions : MonoBehaviour
 {
+    [SerializeField] Radio radio;
+    [SerializeField] BuilderManager builderManager;
+    [SerializeField] AnimationManager animationManager;
+    [SerializeField] SoundManager soundManager;
+    [SerializeField] ParticleManager particleManager;    
     [SerializeField] Rocket rocket;
     [SerializeField] States states;
     [SerializeField] RocketPlatformLights rocketPlatformLights;
+    
+    
 
     private void Update()
     {
@@ -27,30 +34,65 @@ public class StateActions : MonoBehaviour
     {
         if(states.currentState == States.RocketStates.idle)
         {
-            rocketPlatformLights.SetLightColorGreen();
+
+
+           
+            soundManager.sfxPlayed = false;
+            if(animationManager.compartmentAlreadyClosed == false)
+            {
+                animationManager.CompartmentClose();
+            }                                  
+            particleManager.TurnOffParticleSystem(particleManager.trails);
+            particleManager.TurnOffParticleSystem(particleManager.bigSmoke);
+            builderManager.ResetBuilderInstantiated();
+            rocketPlatformLights.SetLightColor(rocketPlatformLights.greenColor);
+
+
+
         }
         if(states.currentState == States.RocketStates.liftoff)
         {
+
+            animationManager.ResetAnimatorParameters();
             rocket.Thrusting();
-            rocketPlatformLights.SetLightColorRed();
+            particleManager.TurnOnParticleSystem(particleManager.bigSmoke);
+            rocketPlatformLights.SetLightColor(rocketPlatformLights.redColor);
+            soundManager.PlaySFX("Rocket");
+            
             
         }
         if(states.currentState == States.RocketStates.frozen)
         {
-            Freeze();
-        }
-        if(states.currentState == States.RocketStates.landing)
-        {
-            UnFreeze();
-        }
-        if(states.currentState == States.RocketStates.landing)
-        {
-            return;
-        }
-        if(states.currentState == States.RocketStates.landingTwo)
-        {
-            return;
-        }
 
-    }
+
+            particleManager.TurnOffParticleSystem(particleManager.bigSmoke);
+            rocketPlatformLights.SetLightColor(rocketPlatformLights.cyanColor);
+            Freeze();
+            radio.PlayRadioIntroductionMessage(radio.radioIntroductionClip);
+            
+        }
+        if(states.currentState == States.RocketStates.landing)
+        {
+            
+            UnFreeze(); 
+            particleManager.TurnOnParticleSystem(particleManager.trails);                    
+            rocketPlatformLights.SetLightColor(rocketPlatformLights.yellowColor);
+            
+        }
+        if(states.currentState == States.RocketStates.landed)
+        {
+
+
+            rocketPlatformLights.SetLightColor(rocketPlatformLights.greenColor);
+            particleManager.TurnOffParticleSystem(particleManager.trails);
+            animationManager.CompartmentOpen();
+            if(builderManager.builderInstantiated == false)
+            {
+                builderManager.InvokeInstantiateOneBuilder(6f);
+            }
+            
+            
+
+        }
+    }    
 }

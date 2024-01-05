@@ -6,6 +6,10 @@ public class PlayerInput : MonoBehaviour
 {    
     [HideInInspector] public float horizontalInput;
     [HideInInspector] public float verticalInput;
+
+    [Header("Keybinds for Rocket Interactions")]
+    public KeyCode liftOff = KeyCode.L;
+    public KeyCode landing = KeyCode.R;
     
 
     void Update()
@@ -18,4 +22,5 @@ public class PlayerInput : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
     }
+   
 }
