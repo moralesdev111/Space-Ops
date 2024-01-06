@@ -9,6 +9,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] Damage damage;
     [SerializeField] Slider healthSlider;
     [SerializeField] int maxHealth = 5;
+    [SerializeField] GameObject enemy;
+
+
     private int currentHealth;
     public int CurrentHealth
     {
@@ -22,6 +25,11 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         SetHealthAtStart();
+    }
+
+    void Update()
+    {
+        Die();
     }
 
 
@@ -42,5 +50,15 @@ public class EnemyHealth : MonoBehaviour
     private void UpdateHealthUI()
     {
         healthSlider.value = CurrentHealth;
+    }
+
+    public bool Die()
+    {
+        if(CurrentHealth == 0)
+        {
+            Destroy(enemy);
+            return true;
+        }
+        else return false;
     }
 }

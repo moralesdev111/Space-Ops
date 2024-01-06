@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class StateActions : MonoBehaviour
 {
+    [SerializeField] BankManager bankManager;
     [SerializeField] Radio radio;
     [SerializeField] BuilderManager builderManager;
     [SerializeField] AnimationManager animationManager;
@@ -36,7 +37,7 @@ public class StateActions : MonoBehaviour
         {
 
 
-           
+            bankManager.ResetCoinOperations();
             soundManager.sfxPlayed = false;
             if(animationManager.compartmentAlreadyClosed == false)
             {
@@ -84,13 +85,20 @@ public class StateActions : MonoBehaviour
 
 
             rocketPlatformLights.SetLightColor(rocketPlatformLights.greenColor);
-            particleManager.TurnOffParticleSystem(particleManager.trails);
+            if(bankManager.canUpdateCoin)
+            {
+                bankManager.AddBalance(1);                
+            }
+            
+             
+            
+            particleManager.TurnOffParticleSystem(particleManager.trails);            
             animationManager.CompartmentOpen();
             if(builderManager.builderInstantiated == false)
             {
                 builderManager.InvokeInstantiateOneBuilder(6f);
             }
-            
+                    
             
 
         }
