@@ -1486,6 +1486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 465230576}
   - component: {fileID: 465230575}
+  - component: {fileID: 465230577}
   m_Layer: 0
   m_Name: BankManager
   m_TagString: Untagged
@@ -1522,6 +1523,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &465230577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465230574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04a7fd11ea1438449d21525c7120696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 1527833772080114224}
+  bankManager: {fileID: 465230575}
 --- !u!1 &592529530
 GameObject:
   m_ObjectHideFlags: 0
@@ -5359,10 +5374,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1527833772080114226}
-    - targetCorrespondingSourceObject: {fileID: 5819448382525094263, guid: ed17249d57c598443a1d21bd820ac920,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1527833772080114230}
   m_SourcePrefab: {fileID: 100100000, guid: ed17249d57c598443a1d21bd820ac920, type: 3}
 --- !u!1 &1527833772079822795 stripped
 GameObject:
@@ -5413,20 +5424,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1527833772080114230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527833772079822795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04a7fd11ea1438449d21525c7120696, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: {fileID: 1527833772080114224}
-  bankManager: {fileID: 465230575}
 --- !u!1001 &2433320486933171634
 PrefabInstance:
   m_ObjectHideFlags: 0

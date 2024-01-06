@@ -85,7 +85,7 @@ public class StateActions : MonoBehaviour
 
 
             rocketPlatformLights.SetLightColor(rocketPlatformLights.greenColor);
-            if(bankManager.canUpdateCoin)
+            if(bankManager.coinCanBeAdded)
             {
                 bankManager.AddBalance(1);                
             }

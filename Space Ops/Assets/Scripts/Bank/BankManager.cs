@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class BankManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI screenUIMoney;
-    public bool canUpdateCoin = true;
+    public bool coinCanBeAdded = true;
     private int currentBalance = 0;
     public int CurrentBalance
     {
@@ -32,18 +32,18 @@ public class BankManager : MonoBehaviour
     public void AddBalance(int amount)
     {        
         CurrentBalance += amount;
-        canUpdateCoin = false;       
+        coinCanBeAdded = false;       
     }
 
     public void ReduceBalance(int amout)
     {
         CurrentBalance-= amout;
-        canUpdateCoin = false;         
+        coinCanBeAdded = false;         
     }
 
     public void ResetCoinOperations()
     {
-         canUpdateCoin = true;
+         coinCanBeAdded = true;
     }
     private void UpdateUI()
     {
