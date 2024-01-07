@@ -13,9 +13,9 @@ public class LandingButton : MonoBehaviour
     private void OnTriggerStay(Collider collider)
     {
         if(collider.tag == "Player")
-        {
+        {            
             uIManager.TurnOnUI(landingCanvas);
-            if(Input.GetKeyDown(playerInput.landing))
+            if(Input.GetKey(playerInput.landing))
             {
                 rocket.applyThrust = false;   
             }                     

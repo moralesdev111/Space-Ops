@@ -11,6 +11,8 @@ public class StateActions : MonoBehaviour
     [SerializeField] Rocket rocket;
     [SerializeField] States states;
     [SerializeField] RocketPlatformLights rocketPlatformLights;
+
+    private bool coinAdded = false;
     
     
 
@@ -37,7 +39,7 @@ public class StateActions : MonoBehaviour
         {
 
 
-            bankManager.ResetCoinOperations();
+           coinAdded = false;
             soundManager.sfxPlayed = false;
             if(animationManager.compartmentAlreadyClosed == false)
             {
@@ -85,10 +87,12 @@ public class StateActions : MonoBehaviour
 
 
             rocketPlatformLights.SetLightColor(rocketPlatformLights.greenColor);
-            if(bankManager.coinCanBeAdded)
+            if(bankManager.coinCanBeAdded && coinAdded == false)
             {
-                bankManager.AddBalance(1);                
+                bankManager.AddBalance(1);    
+                coinAdded = true;            
             }
+            
             
              
             

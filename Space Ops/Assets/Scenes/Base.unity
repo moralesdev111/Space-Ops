@@ -1507,7 +1507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenUIMoney: {fileID: 247265961}
-  canUpdateCoin: 1
+  coinCanBeAdded: 1
 --- !u!4 &465230576
 Transform:
   m_ObjectHideFlags: 0
@@ -3728,7 +3728,7 @@ PrefabInstance:
     - target: {fileID: 1113489407256466703, guid: e93e0fed68727c44991b4fc57cf30ab7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.53
+      value: -2.33
       objectReference: {fileID: 0}
     - target: {fileID: 5924245513674848945, guid: e93e0fed68727c44991b4fc57cf30ab7,
         type: 3}
@@ -3748,12 +3748,12 @@ PrefabInstance:
     - target: {fileID: 7899099928202489408, guid: e93e0fed68727c44991b4fc57cf30ab7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.53
+      value: -2.33
       objectReference: {fileID: 0}
     - target: {fileID: 8632055958874330854, guid: e93e0fed68727c44991b4fc57cf30ab7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.529
+      value: -2.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3823,8 +3823,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.015, y: 0.05, z: 0.03}
-  m_Center: {x: 0, y: 0, z: -0.01}
+  m_Size: {x: 0.022, y: 0.05, z: 0.06}
+  m_Center: {x: -0.005, y: 0, z: -0.01}
 --- !u!65 &1529189352
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3844,8 +3844,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.015, y: 0.07, z: 0.03}
-  m_Center: {x: 0, y: 0, z: -0.01}
+  m_Size: {x: 0.03, y: 0.05, z: 0.06}
+  m_Center: {x: 0.005, y: 0, z: -0.01}
 --- !u!65 &1529189353
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5432,6 +5432,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1763376430938505379, guid: 2a6904e32281e4542aecd02cfedb79ab,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2887860080530229000, guid: 2a6904e32281e4542aecd02cfedb79ab,
         type: 3}
       propertyPath: bankManager

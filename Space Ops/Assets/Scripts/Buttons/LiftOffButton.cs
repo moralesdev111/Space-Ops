@@ -11,9 +11,9 @@ public class LiftOffButton : MonoBehaviour
     private void OnTriggerStay(Collider collider)
     {
         if(collider.tag == "Player")
-        {         
+        {                     
             uIManager.TurnOnUI(liftoffCanvas);
-            if(Input.GetKeyDown(playerInput.liftOff))
+            if(Input.GetKey(playerInput.liftOff))
             {                
             rocket.applyThrust = true;   
             }                     

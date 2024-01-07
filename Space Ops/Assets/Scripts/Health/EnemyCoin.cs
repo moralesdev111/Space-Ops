@@ -16,6 +16,7 @@ public class EnemyCoin : MonoBehaviour
             AddCoinOnKill();
             coinAdded = true; // Set the flag to true to avoid multiple coin additions
         }
+        bankManager.ResetCoinOperations();
     }
 
     private void AddCoinOnKill()
@@ -23,8 +24,6 @@ public class EnemyCoin : MonoBehaviour
         if (bankManager.coinCanBeAdded)
         {
             bankManager.AddBalance(1);
-            
         }
-        bankManager.coinCanBeAdded = true;
     }
 }
