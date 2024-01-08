@@ -16,7 +16,7 @@ public class PlayerCamera : MonoBehaviour
 
     void Start()
     {
-        CursorHandling();
+        //CursorHandling();
     }
 
     

@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform orientation;
     
     private Vector3 moveDirection;
+    public Quest activeQuest;
 
 
     void Start()
