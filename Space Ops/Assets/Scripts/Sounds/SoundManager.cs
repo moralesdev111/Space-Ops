@@ -38,8 +38,7 @@ public class SoundManager : MonoBehaviour
         {
             Debug.LogWarning("Background music clip is not assigned.");
         }
-        }
-        
-        
+        }      
     }
+
 }

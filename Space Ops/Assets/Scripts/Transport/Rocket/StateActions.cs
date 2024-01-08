@@ -59,7 +59,7 @@ public class StateActions : MonoBehaviour
             rocket.Thrusting();
             particleManager.TurnOnParticleSystem(particleManager.bigSmoke);
             rocketPlatformLights.SetLightColor(rocketPlatformLights.redColor);
-            soundManager.PlaySFX("Rocket");
+            soundManager.PlaySFX("rocket");
             
             
         }
@@ -70,7 +70,7 @@ public class StateActions : MonoBehaviour
             particleManager.TurnOffParticleSystem(particleManager.bigSmoke);
             rocketPlatformLights.SetLightColor(rocketPlatformLights.cyanColor);
             Freeze();
-            radio.PlayRadioIntroductionMessage(radio.radioIntroductionClip);
+            //radio.PlayRadioIntroductionMessage(radio.radioIntroductionClip);
             
         }
         if(states.currentState == States.RocketStates.landing)
@@ -79,6 +79,7 @@ public class StateActions : MonoBehaviour
             UnFreeze(); 
             particleManager.TurnOnParticleSystem(particleManager.trails);                    
             rocketPlatformLights.SetLightColor(rocketPlatformLights.yellowColor);
+            soundManager.PlaySFX("rocket2");
             
         }
         if(states.currentState == States.RocketStates.landed)
