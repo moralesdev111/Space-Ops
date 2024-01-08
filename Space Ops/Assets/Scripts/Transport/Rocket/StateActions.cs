@@ -71,6 +71,7 @@ public class StateActions : MonoBehaviour
             rocketPlatformLights.SetLightColor(rocketPlatformLights.cyanColor);
             Freeze();
             //radio.PlayRadioIntroductionMessage(radio.radioIntroductionClip);
+            soundManager.sfxPlayed = false;
             
         }
         if(states.currentState == States.RocketStates.landing)

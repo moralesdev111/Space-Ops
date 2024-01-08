@@ -35,13 +35,13 @@ public class QuestManager : MonoBehaviour
     {        
         titleText.text = quests[questIndex].title;
         descriptionText.text = quests[questIndex].description;
-        rewardText.text = quests[questIndex].goldReward.ToString();        
+        rewardText.text = "Gold Reward: " + quests[questIndex].goldReward.ToString();        
     }
 
     private List<Quest> CreateQuests()
     {        
-        quests.Add(new Quest{title = "Go to A", description = "Explore to your heart content A", goldReward = 2, requiredAmount = 1});
-        quests.Add(new Quest{title = "Go to B", description = "B is the best area go fast", goldReward = 13, requiredAmount = 1});
+        quests.Add(new Quest{title = "Exploration", description = "Explore the rocky path", goldReward = 2, requiredAmount = 1});
+        quests.Add(new Quest{title = "To Infinity", description = "Launch a rocket from the Command platform", goldReward = 13, requiredAmount = 1});
         return quests.ToList();       
     }
 }
