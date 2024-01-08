@@ -4,7 +4,6 @@ public class StateActions : MonoBehaviour
 {
     [SerializeField] BankManager bankManager;
     [SerializeField] Radio radio;
-    [SerializeField] BuilderManager builderManager;
     [SerializeField] AnimationManager animationManager;
     [SerializeField] SoundManager soundManager;
     [SerializeField] ParticleManager particleManager;    
@@ -41,13 +40,13 @@ public class StateActions : MonoBehaviour
 
            coinAdded = false;
             soundManager.sfxPlayed = false;
-            if(animationManager.compartmentAlreadyClosed == false)
+            /*if(animationManager.compartmentAlreadyClosed == false)
             {
                 animationManager.CompartmentClose();
-            }                                  
+            }     */                           
             particleManager.TurnOffParticleSystem(particleManager.trails);
             particleManager.TurnOffParticleSystem(particleManager.bigSmoke);
-            builderManager.ResetBuilderInstantiated();
+         
             rocketPlatformLights.SetLightColor(rocketPlatformLights.greenColor);
 
 
@@ -56,7 +55,7 @@ public class StateActions : MonoBehaviour
         if(states.currentState == States.RocketStates.liftoff)
         {
 
-            animationManager.ResetAnimatorParameters();
+           //animationManager.ResetAnimatorParameters();
             rocket.Thrusting();
             particleManager.TurnOnParticleSystem(particleManager.bigSmoke);
             rocketPlatformLights.SetLightColor(rocketPlatformLights.redColor);
@@ -97,11 +96,8 @@ public class StateActions : MonoBehaviour
              
             
             particleManager.TurnOffParticleSystem(particleManager.trails);            
-            animationManager.CompartmentOpen();
-            if(builderManager.builderInstantiated == false)
-            {
-                builderManager.InvokeInstantiateOneBuilder(6f);
-            }
+            //animationManager.CompartmentOpen();
+            
                     
             
 
